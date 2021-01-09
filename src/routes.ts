@@ -5,7 +5,7 @@ const router = Router();
 
 router.use("/health-check", (req, res) => {
   res.status(200).json({
-    message: "I'm running and accessible",
+    message: "I'm running and accessible"
   });
 });
 
