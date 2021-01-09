@@ -2,7 +2,7 @@ export function getEnumKeyOrValue(enums: any, enumKeyOrValue: any): string {
   return enums[enumKeyOrValue];
 }
 
-export const isString = (item: string): boolean => {
+export const isString = (item: string = ""): boolean => {
   const requestedItem = item.trim();
   return requestedItem.length && typeof requestedItem === "string";
 };

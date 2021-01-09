@@ -1,4 +1,5 @@
 import { BaseRepository } from "../BaseRepository";
+import { IUserInput } from "./Entities/Entities";
 import { IUserModel } from "./IModel";
 import { userModel } from "./Model";
 
@@ -19,5 +20,8 @@ export class UserRepository extends BaseRepository<IUserModel> {
   }
   public async delete({ _id }: any): Promise<IUserModel> {
     return await super.delete(_id);
+  }
+  public async fineOne(_id): Promise<IUserModel> {
+    return await super.getById(_id);
   }
 }

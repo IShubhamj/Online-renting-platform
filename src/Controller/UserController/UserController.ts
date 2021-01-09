@@ -17,9 +17,10 @@ class UserController {
     }
   }
 
-  public async updateUser({ body }: any) {
+  public async updateUser({ body, query }: any) {
     try {
-      return await UserService.updateUser(body);
+      const _id = query.id;
+      return await UserService.updateUser(_id, body);
     } catch (error) {
       throw error;
     }

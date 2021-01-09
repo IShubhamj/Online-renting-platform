@@ -38,36 +38,23 @@
         "application/json"
     ],
     "paths": {
-        "/tenantOnboard/onBoarding": {
+        "/users/createUser": {
             "post": {
                 "tags": [
-                    "Tenant"
+                    "User"
                 ],
-                "summary": "Create tenant and its admin",
+                "summary": "Create User",
                 "parameters": [
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "Tenant we want to create",
+                        "description": "User to be created",
                         "required": true,
                         "schema": {
                             "example": {
-                                "tenantName": "apple.Inc",
-                                "userData": {
-                                    "firstName": "Steve",
-                                    "lastName": "Jobs",
-                                    "email": "steve.jobs@apple.com",
-                                    "mobileNumber": "8888929356",
-                                    "password": "stevegates"
-                                },
-                                "address": {
-                                    "addressLineOne": "Charl's road",
-                                    "addressLineTwo": "Silicon valley",
-                                    "country": "America",
-                                    "city": "Cupertino",
-                                    "pincode": "777509",
-                                    "state": "USA"
-                                }
+                                "name": "Test",
+                                "email": "test@test.com",
+                                "password": "Test@12345"
                             }
                         }
                     }
@@ -77,9 +64,330 @@
                         "description": "OK",
                         "schema": {
                             "example": {
-                                "message": "User created successfully"
+                                "data": {
+                                    "msg": "User Onboard successfully"
+                                },
+                                "metadata": {
+                                    "code": 200,
+                                    "message": "",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
                             }
                         }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "example": {
+                                "data": [
+                                    {
+                                      "msg": "Invalid value",
+                                      "param": "email",
+                                      "location": "body"
+                                    },
+                                    {
+                                      "msg": "Email is required field and 2 characters are required.",
+                                      "param": "email",
+                                      "location": "body"
+                            }]},
+                                "metadata": {
+                                    "code": 422,
+                                    "message": "Validation Error",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
+                            }
+                    }
+                }
+            }
+        },
+        "/users/updateUser": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update User",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User to be created",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Test1",
+                                "password": "Test1@12345"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "example": {
+                                "data": {
+                                    "msg": "User updated successfully"
+                                },
+                                "metadata": {
+                                    "code": 200,
+                                    "message": "",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "example": {
+                                "data": [
+                                    {
+                                      "msg": "Invalid value",
+                                      "param": "name",
+                                      "location": "body"
+                                    },
+                                    {
+                                      "msg": "Name is required field and minimum 2 characters are required.",
+                                      "param": "name",
+                                      "location": "body"
+                            }]},
+                                "metadata": {
+                                    "code": 422,
+                                    "message": "Validation Error",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
+                            }
+                    }
+                }
+            }
+        },
+        "/users/deleteUser": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete User",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "description": "Pass id in query to delete user"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "example": {
+                                "data": {
+                                    "msg": "User deleted successfully"
+                                },
+                                "metadata": {
+                                    "code": 200,
+                                    "message": "",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "example": {
+                                "data": [
+                                    {
+                                      "msg": "id bad format",
+                                      "param": "id",
+                                      "location": "body"
+                                    }
+                                    ]},
+                                "metadata": {
+                                    "code": 422,
+                                    "message": "Validation Error",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
+                            }
+                    }
+                }
+            }
+        },
+        "/items/createItem": {
+            "post": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Create Item",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Item to be created",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Table",
+                                "rent": 50,
+                                "price": 200,
+                                "manufactureDate": "2020-12-28",
+                                "actualCost": 400
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "example": {
+                                "data": {
+                                    "msg": "Item created successfully"
+                                },
+                                "metadata": {
+                                    "code": 200,
+                                    "message": "",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "example": {
+                                "data": [
+                                    {
+                                      "msg": "Invalid value",
+                                      "param": "name",
+                                      "location": "body"
+                                    },
+                                    {
+                                      "msg": "Name is required field and minimum 2 characters are required.",
+                                      "param": "email",
+                                      "location": "body"
+                            }]},
+                                "metadata": {
+                                    "code": 422,
+                                    "message": "Validation Error",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
+                            }
+                    }
+                }
+            }
+        },
+        "/items/updateItem": {
+            "put": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Update Item",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Item to be created",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Table1",
+                                "rent": 50,
+                                "rented": {
+                                    "to": "userId"
+                                },
+                                "price": 200,
+                                "manufactureDate": "2020-12-28",
+                                "actualCost": 400
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "example": {
+                                "data": {
+                                    "msg": "Item updated successfully"
+                                },
+                                "metadata": {
+                                    "code": 200,
+                                    "message": "",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "example": {
+                                "data": [
+                                    {
+                                      "msg": "Invalid value",
+                                      "param": "name",
+                                      "location": "body"
+                                    },
+                                    {
+                                      "msg": "Name is required field and minimum 2 characters are required.",
+                                      "param": "name",
+                                      "location": "body"
+                            }]},
+                                "metadata": {
+                                    "code": 422,
+                                    "message": "Validation Error",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
+                            }
+                    }
+                }
+            }
+        },
+        "/items/deleteItem": {
+            "delete": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Delete Item",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "description": "Pass id in query to delete item"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "example": {
+                                "data": {
+                                    "msg": "Item deleted successfully"
+                                },
+                                "metadata": {
+                                    "code": 200,
+                                    "message": "",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "example": {
+                                "data": [
+                                    {
+                                      "msg": "id bad format",
+                                      "param": "id",
+                                      "location": "body"
+                                    }
+                                    ]},
+                                "metadata": {
+                                    "code": 422,
+                                    "message": "Validation Error",
+                                    "timeStamp": "2021-01-09T12:01:53.111Z"
+                                }
+                            }
                     }
                 }
             }
