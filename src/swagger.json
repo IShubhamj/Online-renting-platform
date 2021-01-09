@@ -1,0 +1,88 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Online Renting Platform",
+        "description": "Renting Platform",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/lisence/MIT"
+        }
+    },
+    "host": "localhost:8000",
+    "basePath": "/api",
+    "tags": [
+        {
+            "name": "User",
+            "description": "User API"
+        },
+        {
+            "name": "Items",
+            "description": "Items API"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/tenantOnboard/onBoarding": {
+            "post": {
+                "tags": [
+                    "Tenant"
+                ],
+                "summary": "Create tenant and its admin",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Tenant we want to create",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "tenantName": "apple.Inc",
+                                "userData": {
+                                    "firstName": "Steve",
+                                    "lastName": "Jobs",
+                                    "email": "steve.jobs@apple.com",
+                                    "mobileNumber": "8888929356",
+                                    "password": "stevegates"
+                                },
+                                "address": {
+                                    "addressLineOne": "Charl's road",
+                                    "addressLineTwo": "Silicon valley",
+                                    "country": "America",
+                                    "city": "Cupertino",
+                                    "pincode": "777509",
+                                    "state": "USA"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "example": {
+                                "message": "User created successfully"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
