@@ -14,7 +14,7 @@ export default function controllerAdapter(
       params,
       query,
       body,
-      user,
+      user
     } = req;
     const { locals } = res;
     try {
@@ -28,7 +28,7 @@ export default function controllerAdapter(
         query,
         locals,
         body,
-        user,
+        user
       });
       res.locals.isHit = true;
       if (result && result.type === APIError.name) {
@@ -40,7 +40,7 @@ export default function controllerAdapter(
           response = new SuccessResponse(result, {
             code: StatusCodes.CREATED,
             message: "",
-            timestamp: new Date(),
+            timestamp: new Date()
           });
         } else {
           response = new SuccessResponse(result);

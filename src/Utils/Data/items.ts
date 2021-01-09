@@ -5,7 +5,7 @@ export const items = [
     price: 500,
     manufactureDate: new Date(),
     rented: false,
-    actualCost: 700,
+    actualCost: 700
   },
   {
     name: "Radio",
@@ -13,6 +13,6 @@ export const items = [
     price: 50,
     rented: false,
     manufactureDate: new Date(),
-    actualCost: 100,
-  },
+    actualCost: 100
+  }
 ];
