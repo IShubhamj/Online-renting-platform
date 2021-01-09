@@ -20,7 +20,7 @@ class ItemService {
     try {
       await this.itemRepository.create(item);
       return {
-        msg: "Item created successfully",
+        msg: "Item created successfully"
       };
     } catch (error) {
       throw error;
@@ -32,12 +32,12 @@ class ItemService {
       const item = await this.isRented(_id, "update");
       if (!item.status) {
         return {
-          msg: item.msg,
+          msg: item.msg
         };
       }
       await this.itemRepository.update({ _id }, itemData);
       return {
-        msg: "Item updated successfully",
+        msg: "Item updated successfully"
       };
     } catch (error) {
       throw error;
@@ -49,12 +49,12 @@ class ItemService {
       const item = await this.isRented(_id, "delete");
       if (!item.status) {
         return {
-          msg: item.msg,
+          msg: item.msg
         };
       }
       await this.itemRepository.delete({ _id });
       return new SuccessResponse(null, {
-        message: "Item deleted successfully",
+        message: "Item deleted successfully"
       });
     } catch (error) {
       throw error;
@@ -70,11 +70,11 @@ class ItemService {
       } else if (item && item.rented.to) {
         return {
           status: false,
-          msg: `Since this item is rented to some user, you are not allowed to ${operation} this item`,
+          msg: `Since this item is rented to some user, you are not allowed to ${operation} this item`
         };
       } else {
         return {
-          status: true,
+          status: true
         };
       }
     } catch (error) {

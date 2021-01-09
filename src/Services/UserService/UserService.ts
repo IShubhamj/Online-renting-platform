@@ -21,10 +21,10 @@ class UserService {
     try {
       await this.userRepository.create({
         password: await bcrypt.hash(password, 10),
-        ...rest,
+        ...rest
       });
       return {
-        msg: "User Onboard successfully",
+        msg: "User Onboard successfully"
       };
     } catch (error) {
       throw error;
@@ -35,7 +35,7 @@ class UserService {
     try {
       await this.userRepository.update({ _id: userData.id }, userData);
       return {
-        msg: "User updated successfully",
+        msg: "User updated successfully"
       };
     } catch (error) {
       throw error;
@@ -46,7 +46,7 @@ class UserService {
     try {
       await this.userRepository.delete({ _id: id });
       return new SuccessResponse(null, {
-        message: "User deleted successfully",
+        message: "User deleted successfully"
       });
     } catch (error) {
       throw error;
