@@ -14,7 +14,7 @@ export default function controllerAdapter(
       params,
       query,
       body,
-      user
+      user,
     } = req;
     const { locals } = res;
     try {
@@ -28,7 +28,7 @@ export default function controllerAdapter(
         query,
         locals,
         body,
-        user
+        user,
       });
       res.locals.isHit = true;
       if (result && result.type === APIError.name) {
@@ -40,7 +40,7 @@ export default function controllerAdapter(
           response = new SuccessResponse(result, {
             code: StatusCodes.CREATED,
             message: "",
-            timestamp: new Date()
+            timestamp: new Date(),
           });
         } else {
           response = new SuccessResponse(result);
@@ -49,6 +49,7 @@ export default function controllerAdapter(
         return res.status(response.metadata.code).json(response);
       }
     } catch (error) {
+      console.log(error);
       console.log("controllerAdapter - error:", JSON.stringify(error, null, 2));
       const status = error.status || 500;
       res.status(status).json(error);

@@ -11,8 +11,7 @@ class UserController {
 
   public async createUser({ body }: any) {
     try {
-      const { userData } = body;
-      return await UserService.addUsers(userData);
+      return await UserService.addUsers(body);
     } catch (error) {
       throw error;
     }
@@ -20,8 +19,7 @@ class UserController {
 
   public async updateUser({ body }: any) {
     try {
-      const { userData } = body;
-      return await UserService.updateUser(userData);
+      return await UserService.updateUser(body);
     } catch (error) {
       throw error;
     }

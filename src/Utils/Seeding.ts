@@ -8,9 +8,10 @@ class Seed {
   public async start() {
     try {
       const count = await this.itemRepo.count();
-      if (count) {
+      if (!count) {
         console.log("Seeding started...");
         await this.itemRepo.create(items);
+        console.log("Seeding done");
       }
     } catch (error) {
       console.log("Error in seeding", error);
