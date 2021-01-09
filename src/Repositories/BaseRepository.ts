@@ -44,8 +44,8 @@ export class BaseRepository<T extends mongoose.Document> {
       : await this.model.updateOne(conditions, options);
   }
 
-  protected async delete(_id: string, tenantId: string): Promise<any> {
-    return await this.model.remove({ _id: this.toObjectId(_id), tenantId });
+  protected async delete(_id: string): Promise<any> {
+    return await this.model.remove({ _id });
   }
 
   protected async count(conditions: any): Promise<any> {

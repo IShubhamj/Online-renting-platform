@@ -3,8 +3,8 @@ import { checkSchema } from "express-validator";
 import { validations } from "./validation";
 import validationHandler from "../../Middlewares/ValidationHandler";
 import controllerAdapter from "../../Middlewares/ControllerAdapter";
-import ItemController from "./UserController";
 import UserController from "./UserController";
+
 const router = Router();
 
 router.post(

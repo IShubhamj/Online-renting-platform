@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 
 import { UserRepository } from "../../Repositories/UserRepository/Repository";
 import { IUserInput } from "../../Repositories/UserRepository/Entities/Entities";
+import { SuccessResponse } from "../../Entities/Responses";
 
 class UserService {
   private static instance: UserService;
@@ -20,10 +21,10 @@ class UserService {
     try {
       await this.userRepository.create({
         password: await bcrypt.hash(password, 10),
-        ...rest
+        ...rest,
       });
       return {
-        msg: "User Onboard successfully"
+        msg: "User Onboard successfully",
       };
     } catch (error) {
       throw error;
@@ -34,7 +35,7 @@ class UserService {
     try {
       await this.userRepository.update({ _id: userData.id }, userData);
       return {
-        msg: "User ipdated successfully"
+        msg: "User updated successfully",
       };
     } catch (error) {
       throw error;
@@ -43,7 +44,10 @@ class UserService {
 
   public async deleteUser(id: string) {
     try {
-      return await this.userRepository.delete({ _id: id });
+      await this.userRepository.delete({ _id: id });
+      return new SuccessResponse(null, {
+        message: "User deleted successfully",
+      });
     } catch (error) {
       throw error;
     }

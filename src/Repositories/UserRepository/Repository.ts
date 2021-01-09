@@ -17,7 +17,7 @@ export class UserRepository extends BaseRepository<IUserModel> {
   ): Promise<IUserModel> {
     return await super.update(conditions, options);
   }
-  public async delete({ _id, tenantId }: any): Promise<IUserModel> {
-    return await super.delete(_id, tenantId);
+  public async delete({ _id }: any): Promise<IUserModel> {
+    return await super.delete(_id);
   }
 }

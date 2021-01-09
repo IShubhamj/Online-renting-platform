@@ -17,9 +17,14 @@ export class ItemRepository extends BaseRepository<IItemModel> {
   ): Promise<IItemModel> {
     return await super.update(conditions, options);
   }
-  public async delete({ _id, tenantId }: any): Promise<IItemModel> {
-    return await super.delete(_id, tenantId);
+  public async delete({ _id }: any): Promise<IItemModel> {
+    return await super.delete(_id);
   }
+
+  public async findOne(_id: string): Promise<IItemModel> {
+    return await super.getById(_id);
+  }
+
   public async count(): Promise<IItemModel> {
     return await super.count({});
   }
