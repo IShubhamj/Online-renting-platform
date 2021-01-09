@@ -7,7 +7,7 @@ export default class SuccessResponse implements IResponse {
     public metadata: IMetadata = {
       code: StatusCodes.OK,
       message: "",
-      timestamp: new Date(),
+      timestamp: new Date()
     }
   ) {}
 }

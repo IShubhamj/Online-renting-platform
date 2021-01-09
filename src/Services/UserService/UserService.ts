@@ -20,10 +20,10 @@ class UserService {
     try {
       await this.userRepository.create({
         password: await bcrypt.hash(password, 10),
-        ...rest,
+        ...rest
       });
       return {
-        msg: "User Onboard successfully",
+        msg: "User Onboard successfully"
       };
     } catch (error) {
       throw error;
@@ -34,7 +34,7 @@ class UserService {
     try {
       await this.userRepository.update({ _id: userData.id }, userData);
       return {
-        msg: "User ipdated successfully",
+        msg: "User ipdated successfully"
       };
     } catch (error) {
       throw error;

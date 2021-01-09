@@ -9,7 +9,7 @@ const config: IConfigCore = {
   apiPrefix: process.env.API_PREFIX,
   mongoUri:
     process.env.MONGO_URI ||
-    "mongodb://localhost:27017/online-rent-platfrom?retryWrites=false",
+    "mongodb://localhost:27017/online-rent-platfrom?retryWrites=false"
 };
 
 export default config;

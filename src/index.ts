@@ -17,7 +17,7 @@ Database.Open()
       console.log("Press ^C to to stop");
     });
 
-    server.on("error", async (error) => {
+    server.on("error", async error => {
       console.log("Got error in starting server");
       console.log(error);
     });
@@ -26,7 +26,7 @@ Database.Open()
       console.log(`Disposing server on port ${config.port}`);
     });
   })
-  .catch((error) => {
+  .catch(error => {
     console.log("Error in DB connection");
     console.log(error);
   });

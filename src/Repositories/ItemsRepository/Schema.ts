@@ -7,7 +7,7 @@ export class ItemSchema extends mongoose.Schema {
       rent: { type: Number, required: true },
       price: { type: Number, required: true },
       manufactureDate: { type: Date, required: true },
-      actualCost: { type: Number, required: true },
+      actualCost: { type: Number, required: true }
     };
     super(schema, options);
   }

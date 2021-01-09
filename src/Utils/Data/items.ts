@@ -4,13 +4,13 @@ export const items = [
     rent: 100,
     price: 500,
     manufactureDate: new Date(),
-    actualCost: 700,
+    actualCost: 700
   },
   {
     name: "Radio",
     rent: 10,
     price: 50,
     manufactureDate: new Date(),
-    actualCost: 100,
-  },
+    actualCost: 100
+  }
 ];

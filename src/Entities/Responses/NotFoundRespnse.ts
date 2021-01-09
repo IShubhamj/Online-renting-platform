@@ -13,7 +13,7 @@ export default class NotFoundResponse implements IResponse {
     this.metadata = {
       code: StatusCodes.NOT_FOUND,
       message,
-      timestamp: new Date(),
+      timestamp: new Date()
     };
   }
 }

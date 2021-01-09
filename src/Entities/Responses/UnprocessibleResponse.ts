@@ -10,7 +10,7 @@ export default class UnprocessableResponse implements IResponse {
     this.metadata = {
       code: StatusCodes.UNPROCESSABLE,
       message,
-      timestamp: new Date(),
+      timestamp: new Date()
     };
   }
 }

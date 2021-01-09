@@ -4,7 +4,7 @@ import { ItemSchema } from "./Schema";
 
 const itemSchema = new ItemSchema({
   collection: "Items",
-  timestamps: true,
+  timestamps: true
 });
 
 itemSchema.index({ name: 1 }, { unique: true });

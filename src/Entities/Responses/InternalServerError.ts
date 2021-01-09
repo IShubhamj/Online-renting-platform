@@ -10,7 +10,7 @@ export default class InternalServerErrorResponse implements IResponse {
     this.metadata = {
       code: StatusCodes.INTERNAL_SERVER_ERROR,
       message,
-      timestamp: new Date(),
+      timestamp: new Date()
     };
   }
 }

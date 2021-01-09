@@ -12,7 +12,7 @@ export default class Database {
         poolSize: 5,
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true,
+        useCreateIndex: true
       };
 
       mongoose.connect(config.mongoUri, options);
@@ -22,7 +22,7 @@ export default class Database {
         resolve({ msg: "Database connected" });
       });
 
-      mongoose.connection.on("error", (error) => {
+      mongoose.connection.on("error", error => {
         reject(error);
       });
     });

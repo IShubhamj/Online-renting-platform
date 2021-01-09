@@ -14,7 +14,7 @@ export default class BadRequestResponse implements IResponse {
     this.metadata = {
       code: StatusCodes.BAD_REQUEST,
       message,
-      timestamp: new Date(),
+      timestamp: new Date()
     };
   }
 }
