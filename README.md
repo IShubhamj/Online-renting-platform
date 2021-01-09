@@ -2,10 +2,33 @@
 
 Online Renting platform
 
-###### How to use
+### API available on
 
-> $ cd Online-renting-platform
+http://{HOST}:{PORT}/api-docs
 
-> $ npm install
+### How to use
 
-> $
+```
+$ cd Online-renting-platform
+$ npm install
+$ touch .env
+// Copy all the env variables from .env.example and paste in .env
+$ npm start // to run in production mode
+$ npm run dev // to run in development mode
+```
+
+### Available Scripts
+
+> npm start
+
+> npm run dev
+
+> npm run build
+
+> npm run lint
+
+> npm run lint:fix
+
+> npm run pre:build
+
+_Happy Coding_ :+1:
