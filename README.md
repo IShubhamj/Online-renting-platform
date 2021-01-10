@@ -1,8 +1,6 @@
 # Online-renting-platform
 
-Online Renting platform
-
-### API available on
+### API documentation available on
 
 http://{HOST}:{PORT}/api-docs
 
